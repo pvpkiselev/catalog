@@ -1,0 +1,59 @@
+{
+  "name": "e-commerce",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true npx eslint . --report-unused-disable-directives --max-warnings 0' --max-warnings 0",
+    "lint:fix": "eslint . --ext js,jsx --fix",
+    "prettier": "prettier . --check --ignore-unknown",
+    "prettier:fix": "prettier . -w"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.21",
+    "@mui/lab": "^5.0.0-alpha.173",
+    "@mui/material": "^5.16.5",
+    "@reduxjs/toolkit": "^2.2.6",
+    "axios": "^1.7.2",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-redux": "^9.1.2",
+    "react-router-dom": "^6.24.1",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "use-debounce": "^10.0.1"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@types/react-slick": "^0.23.13",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^9.4.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "gh-pages": "^6.1.1",
+    "globals": "^15.4.0",
+    "prettier": "^3.2.5",
+    "sass": "^1.77.4",
+    "typescript": "^5.2.2",
+    "typescript-eslint": "^7.13.0",
+    "vite": "^5.2.0"
+  },
+  "overrides": {
+    "eslint": "^9.4.0"
+  }
+}
