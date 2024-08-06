@@ -8,14 +8,22 @@ interface ButtonLinkProps {
   onClick?: () => void;
   color?: ButtonProps['color'];
   variant?: ButtonProps['variant'];
+  fullWidth?: boolean;
 }
 
 function ButtonLink(props: ButtonLinkProps) {
-  const { to, onClick, children, color = 'primary', variant = 'contained' } = props;
+  const {
+    to,
+    onClick,
+    children,
+    color = 'primary',
+    variant = 'contained',
+    fullWidth = false,
+  } = props;
 
   return (
     <Link to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
-      <Button variant={variant} color={color} onClick={onClick}>
+      <Button variant={variant} color={color} onClick={onClick} fullWidth={fullWidth}>
         {children}
       </Button>
     </Link>

@@ -63,7 +63,7 @@ function BasketPage() {
                   ${totalPrice}
                 </Typography>
               </Stack>
-              <ButtonLink to="/checkout" onClick={handleCheckoutClick}>
+              <ButtonLink to="/checkout" onClick={handleCheckoutClick} fullWidth>
                 To Checkout
               </ButtonLink>
             </Stack>

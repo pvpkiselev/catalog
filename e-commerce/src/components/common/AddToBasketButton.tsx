@@ -33,7 +33,7 @@ function AddToBasketButton({ product, isIconButton }: AddToBasketButtonProps) {
       onClick={handleBasketClick}
       startIcon={isInBasket ? <RemoveShoppingCart /> : <ShoppingCart color="inherit" />}
     >
-      {isInBasket ? basketButtonText.add : basketButtonText.remove}
+      {isInBasket ? basketButtonText.remove : basketButtonText.add}
     </Button>
   );
 }
