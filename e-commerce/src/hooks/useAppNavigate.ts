@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-function useGoBack() {
+function useAppNavigate() {
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -12,4 +12,4 @@ function useGoBack() {
   return { goBack };
 }
 
-export default useGoBack;
+export default useAppNavigate;
