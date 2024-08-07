@@ -10,18 +10,21 @@ export const getSortedProductsThunk = createAppAsyncThunk(
   'filters/getSortedProducts',
   async ({
     searchQuery,
-    priceRange,
+    price_min,
+    price_max,
     categoryId,
     limit,
   }: {
     searchQuery: string;
-    priceRange: number[];
+    price_min: number;
+    price_max: number;
     categoryId: number | null;
     limit: number;
   }) => {
     return await getSortedProducts({
       searchQuery,
-      priceRange,
+      price_min,
+      price_max,
       categoryId,
       limit,
     });

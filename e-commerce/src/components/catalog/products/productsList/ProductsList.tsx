@@ -28,7 +28,9 @@ function ProductsList() {
 
   const getProductsList = useCallback(async () => {
     setError(null);
-    const options = { searchQuery, priceRange, categoryId, limit };
+    const price_min = priceRange[0];
+    const price_max = priceRange[1];
+    const options = { searchQuery, price_min, price_max, categoryId, limit };
     try {
       await dispatch(getSortedProductsThunk(options));
     } catch (error) {
@@ -47,9 +49,24 @@ function ProductsList() {
   const isLoading = status === 'pending';
 
   const titleMessage = {
+    loading: 'Loading products',
     no_found: 'No products found',
     products: `${productsLength} products`,
   };
+
+  const infoMessage = {
+    loading: 'Loading…',
+    no_products: 'No more products',
+  };
+
+  const currentTitle = isLoading
+    ? titleMessage.loading
+    : isProductsEmpty
+      ? titleMessage.no_found
+      : titleMessage.products;
+
+  const isShowPagination = !isProductsEmpty && !isEndOfList;
+  const isShowSkeleton = isLoading && isProductsEmpty;
 
   return (
     <Box flex="1">
@@ -58,9 +75,9 @@ function ProductsList() {
       ) : (
         <Stack gap={6} width="100%">
           <Typography variant="h2" component="h2">
-            {isProductsEmpty ? titleMessage.no_found : titleMessage.products}
+            {currentTitle}
           </Typography>
-          {isLoading ? (
+          {isShowSkeleton ? (
             <ProductsListSkeleton />
           ) : (
             <Grid container spacing={4} wrap="wrap">
@@ -81,11 +98,11 @@ function ProductsList() {
             </Grid>
           )}
 
-          {!isProductsEmpty && !isEndOfList ? (
+          {isShowPagination ? (
             <PaginationButton />
           ) : (
             <Typography textAlign="center">
-              {isLoading ? 'Loading…' : 'No more products'}
+              {isLoading ? infoMessage.loading : infoMessage.no_products}
             </Typography>
           )}
         </Stack>

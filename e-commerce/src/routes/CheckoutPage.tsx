@@ -16,6 +16,11 @@ function CheckoutPage() {
   const totalCount = useAppSelector(selectCheckoutTotalCount);
   const currentDate = getFormattedDate();
 
+  const findCurrentProduct = (id: number) => {
+    const currentProduct = checkoutItems.find((item) => item.id === id);
+    return currentProduct ?? null;
+  };
+
   return (
     <Container maxWidth="md" sx={{ paddingInline: { sm: 4, md: 6 } }}>
       <Box>
@@ -53,7 +58,7 @@ function CheckoutPage() {
           </Stack>
           <Stack gap={6} width="100%">
             {checkoutItems.map((product) => (
-              <CheckoutCard key={product.id} product={product} />
+              <CheckoutCard key={product.id} product={findCurrentProduct(product.id)} />
             ))}
           </Stack>
         </Stack>

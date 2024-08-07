@@ -1,5 +1,5 @@
-import Filters from '@/components/filters/Filters';
-import ProductsList from '@/components/products/productsList/ProductsList';
+import Filters from '@/components/catalog/filters/Filters';
+import ProductsList from '@/components/catalog/products/productsList/ProductsList';
 import { Container, Stack } from '@mui/material';
 
 function CatalogPage() {

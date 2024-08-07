@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Dialog,
   DialogActions,
@@ -11,8 +11,9 @@ import {
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import GoBackButton from '../common/GoBackButton';
+import { AuthValues } from '@/helpers/models';
 interface AuthModalProps {
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: ({ name, email, password }: AuthValues) => void;
   onToggle: () => void;
   isPending: boolean;
   isRegistered: boolean;
@@ -40,11 +41,28 @@ const authButtonText = {
 };
 
 function AuthModal(props: AuthModalProps) {
+  const [credentials, setCredentials] = useState({
+    userName: '',
+    email: '',
+    password: '',
+  });
+
   const { onSubmit, onToggle, isPending, isRegistered, isOpen } = props;
   const title = isRegistered ? authTitle.signIn : authTitle.signUp;
   const dialogContentText = isRegistered ? authContentText.signIn : authContentText.signUp;
   const toggleText = isRegistered ? authToggleText.signIn : authToggleText.signUp;
   const submitButtonText = isRegistered ? authButtonText.signIn : authButtonText.signUp;
+
+  const handleCredentialsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setCredentials({ ...credentials, [name]: value.trim() });
+  };
+
+  const handleAuthSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { userName: name, email, password } = credentials;
+    onSubmit({ name, email, password });
+  };
 
   return (
     <Dialog
@@ -58,7 +76,7 @@ function AuthModal(props: AuthModalProps) {
           boxShadow: 'none',
         },
         component: 'form',
-        onSubmit: onSubmit,
+        onSubmit: handleAuthSubmit,
       }}
       slotProps={{
         backdrop: {
@@ -84,23 +102,36 @@ function AuthModal(props: AuthModalProps) {
             </Link>
           </DialogContentText>
           {!isRegistered && (
-            <TextField size="small" name="userName" label="Name" type="text" required fullWidth />
+            <TextField
+              value={credentials.userName}
+              size="small"
+              name="userName"
+              label="Name"
+              type="text"
+              required
+              fullWidth
+              onChange={handleCredentialsChange}
+            />
           )}
           <TextField
+            value={credentials.email}
             size="small"
             name="email"
             label="Email address"
             type="email"
             required
             fullWidth
+            onChange={handleCredentialsChange}
           />
           <TextField
+            value={credentials.password}
             size="small"
             name="password"
             label="Password"
             type="password"
             required
             fullWidth
+            onChange={handleCredentialsChange}
           />
         </Stack>
       </DialogContent>

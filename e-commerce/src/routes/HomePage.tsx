@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/common/ButtonLink';
-import CardsSlider from '@/components/common/CardsSlider';
+import CardsSlider from '@/components/common/slider/CardsSlider';
 import CategoryCard from '@/components/home/categoryCard/CategoryCard';
 import useCategories from '@/hooks/useCategories';
 import { Box, Container, Stack, Typography } from '@mui/material';

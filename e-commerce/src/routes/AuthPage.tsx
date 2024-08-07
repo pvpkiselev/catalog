@@ -1,4 +1,5 @@
 import AuthModal from '@/components/modals/AuthModal';
+import { AuthValues } from '@/helpers/models';
 import useAppNavigate from '@/hooks/useAppNavigate';
 import useAuth from '@/hooks/useAuth';
 import { selectAuthStatus } from '@/store/auth/authSelectors';
@@ -17,12 +18,7 @@ function AuthPage() {
     setIsRegistered(!isRegistered);
   };
 
-  const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const email = form.email.value.trim();
-    const password = form.password.value.trim();
-
+  const handleLoginSubmit = async ({ email, password }: AuthValues) => {
     try {
       const login = await handleLogin(email, password);
       if (login) {
@@ -34,13 +30,7 @@ function AuthPage() {
     }
   };
 
-  const handleRegisterSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const name = form.userName.value.trim();
-    const email = form.email.value.trim();
-    const password = form.password.value.trim();
-
+  const handleRegisterSubmit = async ({ name, email, password }: AuthValues) => {
     try {
       const register = await handleRegister(name, email, password);
       if (register) {

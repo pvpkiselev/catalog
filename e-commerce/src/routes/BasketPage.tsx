@@ -15,6 +15,11 @@ function BasketPage() {
     checkoutBasket();
   };
 
+  const findCurrentProduct = (id: number) => {
+    const currentProduct = basketItems.find((item) => item.id === id);
+    return currentProduct ?? null;
+  };
+
   return (
     <Container maxWidth="md" sx={{ paddingInline: { sm: 4, md: 6 } }}>
       {isBasketEmpty ? (
@@ -40,7 +45,7 @@ function BasketPage() {
           <Stack direction="row" gap={6} width="100%" flexWrap="wrap">
             <Stack gap={6} minWidth={288} flexGrow={1} flexShrink={1} flexBasis={0}>
               {basketItems.map((product) => (
-                <BasketCard key={product.id} product={product} />
+                <BasketCard key={product.id} product={findCurrentProduct(product.id)} />
               ))}
             </Stack>
             <Stack

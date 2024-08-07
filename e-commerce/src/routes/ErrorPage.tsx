@@ -4,6 +4,7 @@ import { Box, Typography } from '@mui/material';
 function ErrorPage() {
   return (
     <Box
+      data-testid="error-page"
       sx={{
         display: 'flex',
         flexDirection: 'column',

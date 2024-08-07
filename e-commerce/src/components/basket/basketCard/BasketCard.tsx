@@ -6,11 +6,15 @@ import { Link } from 'react-router-dom';
 import BasketCounter from '../basketCounter/BasketCounter';
 
 interface BasketCardProps {
-  product: Product;
+  product: Product | null;
 }
 
 function BasketCard({ product }: BasketCardProps) {
   const { basketItems } = useBasket();
+
+  if (!product) {
+    return null;
+  }
 
   const { images, title, category, price, id } = product;
 

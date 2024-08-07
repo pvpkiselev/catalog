@@ -3,11 +3,11 @@ import { useAppSelector } from '@/store/redux';
 import { AppBar, Container, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Logo from '@public/logo/logo.svg';
-import Search from '../filters/search/Search';
 import BasketButton from './buttons/BasketButton';
 import LogoutButton from './buttons/LogoutButton';
 import LoginButton from './buttons/LoginButton';
 import AppLink from '../common/TextLink';
+import Search from '../catalog/filters/search/Search';
 
 function Header() {
   const isAuth = useAppSelector(selectIsAuth);

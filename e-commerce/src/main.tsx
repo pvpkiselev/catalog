@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { theme } from './theme/theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 import ErrorPage from './routes/ErrorPage';
 import { Provider } from 'react-redux';
@@ -24,31 +24,27 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/home" replace />,
-      },
-      {
-        path: '/home',
         element: <HomePage />,
       },
       {
-        path: '/catalog',
+        path: 'catalog',
         element: <CatalogPage />,
       },
       {
-        path: '/card/:cardId',
+        path: 'card/:cardId',
         element: <ProductPage />,
         loader: productPageLoader,
       },
       {
-        path: '/basket',
+        path: 'basket',
         element: <BasketPage />,
       },
       {
-        path: '/checkout',
+        path: 'checkout',
         element: <CheckoutPage />,
       },
       {
-        path: '/auth',
+        path: 'auth',
         element: <AuthPage />,
       },
     ],

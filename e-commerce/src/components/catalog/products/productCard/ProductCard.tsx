@@ -1,9 +1,9 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material';
-import AddToBasketButton from '../../common/AddToBasketButton';
 import { Link } from 'react-router-dom';
 import { Product } from '@/api/models';
 import { BORDER_RADIUS_M, GRAY_BG } from '@/helpers/constants';
 import ImageSlider from '@/components/common/ImageSlider';
+import AddToBasketButton from '@/components/common/AddToBasketButton';
 
 interface ProductCardProps {
   product: Product;

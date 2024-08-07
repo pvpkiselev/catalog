@@ -6,7 +6,8 @@ import { fetchErrors } from './constants';
 
 export interface GetSortedProducts {
   searchQuery?: string;
-  priceRange: number[];
+  price_min: number;
+  price_max: number;
   categoryId: number | null;
   limit: number;
 }
@@ -21,29 +22,18 @@ type ProductsParams = {
 };
 
 const getSortedProducts = async (props: GetSortedProducts): Promise<Product[]> => {
-  const { searchQuery, priceRange, categoryId, limit } = props;
+  const { searchQuery, price_min, price_max, categoryId, limit } = props;
   const { products } = resources.filters;
   const url = `${products}`;
 
-  const price_min = priceRange[0];
-  const price_max = priceRange[1];
-
   const params: ProductsParams = {
-    title: null,
+    title: searchQuery || null,
     price_min,
     price_max,
-    categoryId: null,
+    categoryId: categoryId || null,
     offset: DEFAULT_PRODUCTS_OFFSET,
     limit,
   };
-
-  if (categoryId) {
-    params.categoryId = categoryId;
-  }
-
-  if (searchQuery) {
-    params.title = searchQuery;
-  }
 
   const config: Config = {
     method: 'GET',

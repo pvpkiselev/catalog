@@ -6,11 +6,15 @@ import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 interface CheckoutCardProps {
-  product: Product;
+  product: Product | null;
 }
 
 function CheckoutCard({ product }: CheckoutCardProps) {
   const checkoutItems = useAppSelector(selectCheckoutItems);
+
+  if (!product) {
+    return null;
+  }
 
   const { images, title, id } = product;
 
