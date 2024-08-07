@@ -1,13 +1,13 @@
-import { selectIsAuth } from '@/store/auth/authSelectors';
+import { selectIsAuth } from '@/store/auth/auth-selectors';
 import { useAppSelector } from '@/store/redux';
 import { AppBar, Container, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Logo from '@public/logo/logo.svg';
-import BasketButton from './buttons/BasketButton';
-import LogoutButton from './buttons/LogoutButton';
-import LoginButton from './buttons/LoginButton';
-import AppLink from '../common/TextLink';
-import Search from '../catalog/filters/search/Search';
+import BasketButton from './buttons/basket-button';
+import LogoutButton from './buttons/logout-button';
+import LoginButton from './buttons/login-button';
+import AppLink from '../common/text-link';
+import Search from '../catalog/filters/search';
 
 function Header() {
   const isAuth = useAppSelector(selectIsAuth);

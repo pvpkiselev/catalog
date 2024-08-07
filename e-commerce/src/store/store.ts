@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { authReducer } from './auth/authSlice';
-import { filtersReducer } from './filters/filtersSlice';
-import { basketReducer } from './basket/basketSlice';
+import { authReducer } from './auth/auth-slice';
+import { filtersReducer } from './filters/filters-slice';
+import { basketReducer } from './basket/basket-slice';
 
 const appReducer = combineReducers({
   auth: authReducer,
