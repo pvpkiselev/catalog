@@ -2,7 +2,7 @@ import { setAxiosAuthToken } from '@/api/axiosConfig';
 import { TOKEN_COOKIES } from '@/helpers/constants';
 import { logout } from '@/store/auth/auth-slice';
 import { checkUserThunk, loginUserThunk, registerUserThunk } from '@/store/auth/auth-thunks';
-import { useAppDispatch } from '@/store/redux';
+import { useAppDispatch } from '@/store/store';
 import Cookies from 'js-cookie';
 import toast from 'react-hot-toast';
 

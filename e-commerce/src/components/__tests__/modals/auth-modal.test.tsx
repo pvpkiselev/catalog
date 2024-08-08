@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import AuthModal from '../auth-modal';
+import AuthModal from '../../modals/auth-modal';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -33,11 +33,10 @@ describe('AuthModal', () => {
 
   it('input credentials', async () => {
     render(<AuthModal {...defaultProps} />, { wrapper: BrowserRouter });
-    const user = userEvent.setup();
 
-    await user.type(screen.getByLabelText(/Name/i), 'Vasiliy');
-    await user.type(screen.getByLabelText(/Email address/i), 'vasya@example.com');
-    await user.type(screen.getByLabelText(/Password/i), 'password123');
+    await userEvent.type(screen.getByLabelText(/Name/i), 'Vasiliy');
+    await userEvent.type(screen.getByLabelText(/Email address/i), 'vasya@example.com');
+    await userEvent.type(screen.getByLabelText(/Password/i), 'password123');
 
     expect((screen.getByLabelText(/Name/i) as HTMLInputElement).value).toBe('Vasiliy');
     expect((screen.getByLabelText(/Email address/i) as HTMLInputElement).value).toBe(
@@ -48,12 +47,11 @@ describe('AuthModal', () => {
 
   it('calls onSubmit with correct values', async () => {
     render(<AuthModal {...defaultProps} />, { wrapper: BrowserRouter });
-    const user = userEvent.setup();
 
-    await user.type(screen.getByLabelText(/Name/i), 'Vasiliy');
-    await user.type(screen.getByLabelText(/Email address/i), 'vasya@example.com');
-    await user.type(screen.getByLabelText(/Password/i), 'password123');
-    await user.click(screen.getByRole('button', { name: /Sign up/i }));
+    await userEvent.type(screen.getByLabelText(/Name/i), 'Vasiliy');
+    await userEvent.type(screen.getByLabelText(/Email address/i), 'vasya@example.com');
+    await userEvent.type(screen.getByLabelText(/Password/i), 'password123');
+    await userEvent.click(screen.getByRole('button', { name: /Sign up/i }));
 
     expect(mockOnSubmit).toHaveBeenCalledWith({
       name: 'Vasiliy',

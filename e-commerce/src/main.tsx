@@ -5,7 +5,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './routes/error-page';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { setupStore } from './store/store';
 import BasketPage from './routes/basket-page';
 import { productPageLoader } from './loaders/product-page-loader';
 import ProductPage from './routes/product-page';
@@ -55,7 +55,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Provider store={store}>
+      <Provider store={setupStore()}>
         <RouterProvider router={router} />
       </Provider>
     </ThemeProvider>

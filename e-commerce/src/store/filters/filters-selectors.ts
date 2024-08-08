@@ -1,38 +1,39 @@
-import { AppState, createAppSelector } from '../redux';
+import { createSelector } from '@reduxjs/toolkit';
+import { AppState } from '../store';
 
 const selectFiltersState = (state: AppState) => state.filters;
 
-export const selectFiltersStatus = createAppSelector(
+export const selectFiltersStatus = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.status
 );
 
-export const selectCategories = createAppSelector(
+export const selectCategories = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.categories
 );
 
-export const selectCurrentCategoryId = createAppSelector(
+export const selectCurrentCategoryId = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.categoryId
 );
 
-export const selectPriceRange = createAppSelector(
+export const selectPriceRange = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.priceRange
 );
 
-export const selectProducts = createAppSelector(
+export const selectProducts = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.products
 );
 
-export const selectSearchQuery = createAppSelector(
+export const selectSearchQuery = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.searchQuery
 );
 
-export const selectLimit = createAppSelector(
+export const selectLimit = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.limit
 );

@@ -1,7 +1,7 @@
 import { Product } from '@/api/models';
 import { BORDER_RADIUS_M } from '@/helpers/constants';
 import { selectCheckoutItems } from '@/store/basket/basket-selectors';
-import { useAppSelector } from '@/store/redux';
+import { useAppSelector } from '@/store/store';
 import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import { MAX_PRICE, MIN_DISTANCE, MIN_PRICE } from '@/helpers/constants';
 import { selectPriceRange } from '@/store/filters/filters-selectors';
 import { changedPriceRange } from '@/store/filters/filters-slice';
-import { useAppDispatch, useAppSelector } from '@/store/redux';
+import { useAppDispatch, useAppSelector } from '@/store/store';
 import { Box, Slider, Typography } from '@mui/material';
 import { useState } from 'react';
 

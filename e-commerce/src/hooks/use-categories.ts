@@ -1,7 +1,7 @@
 import { selectCategories, selectCurrentCategoryId } from '@/store/filters/filters-selectors';
 import { changedCategoryId } from '@/store/filters/filters-slice';
 import { getCategoriesThunk } from '@/store/filters/filters-thunks';
-import { useAppDispatch, useAppSelector } from '@/store/redux';
+import { useAppDispatch, useAppSelector } from '@/store/store';
 
 function useCategories() {
   const dispatch = useAppDispatch();

@@ -3,7 +3,7 @@ import { AuthValues } from '@/helpers/models';
 import useAppNavigate from '@/hooks/use-app-navigate';
 import useAuth from '@/hooks/use-auth';
 import { selectAuthStatus } from '@/store/auth/auth-selectors';
-import { useAppSelector } from '@/store/redux';
+import { useAppSelector } from '@/store/store';
 import { useState } from 'react';
 
 function AuthPage() {

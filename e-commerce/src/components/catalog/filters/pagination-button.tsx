@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '@/store/redux';
+import { useAppDispatch, useAppSelector } from '@/store/store';
 import { selectFiltersStatus } from '@/store/filters/filters-selectors';
 import { LoadingButton } from '@mui/lab';
 import { PRODUCTS_LIMIT } from '@/helpers/constants';

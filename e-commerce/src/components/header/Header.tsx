@@ -1,5 +1,4 @@
 import { selectIsAuth } from '@/store/auth/auth-selectors';
-import { useAppSelector } from '@/store/redux';
 import { AppBar, Container, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Logo from '@public/logo/logo.svg';
@@ -8,6 +7,7 @@ import LogoutButton from './buttons/logout-button';
 import LoginButton from './buttons/login-button';
 import AppLink from '../common/text-link';
 import Search from '../catalog/filters/search';
+import { useAppSelector } from '@/store/store';
 
 function Header() {
   const isAuth = useAppSelector(selectIsAuth);

@@ -1,13 +1,14 @@
-import { AppState, createAppSelector } from '../redux';
+import { createSelector } from '@reduxjs/toolkit';
+import { AppState } from '../store';
 
 const selectBasketState = (state: AppState) => state.basket;
 
-export const selectBasketItems = createAppSelector(
+export const selectBasketItems = createSelector(
   [selectBasketState],
   (basketState) => basketState.basketItems
 );
 
-export const selectBasketTotalCount = createAppSelector([selectBasketState], (basketState) => {
+export const selectBasketTotalCount = createSelector([selectBasketState], (basketState) => {
   return basketState.basketItems.reduce((total, item) => {
     const itemCount = Number(item.count);
     if (!isNaN(itemCount) && itemCount > 0) {
@@ -17,7 +18,7 @@ export const selectBasketTotalCount = createAppSelector([selectBasketState], (ba
   }, 0);
 });
 
-export const selectBasketTotalPrice = createAppSelector([selectBasketState], (basketState) => {
+export const selectBasketTotalPrice = createSelector([selectBasketState], (basketState) => {
   return basketState.basketItems.reduce((total, item) => {
     const price = Number(item.price);
     if (!isNaN(price) && price > 0) {
@@ -27,12 +28,12 @@ export const selectBasketTotalPrice = createAppSelector([selectBasketState], (ba
   }, 0);
 });
 
-export const selectCheckoutItems = createAppSelector(
+export const selectCheckoutItems = createSelector(
   [selectBasketState],
   (basketState) => basketState.checkoutItems
 );
 
-export const selectCheckoutTotalCount = createAppSelector([selectBasketState], (basketState) => {
+export const selectCheckoutTotalCount = createSelector([selectBasketState], (basketState) => {
   return basketState.checkoutItems.reduce((total, item) => {
     const itemCount = Number(item.count);
     if (!isNaN(itemCount) && itemCount > 0) {
@@ -42,7 +43,7 @@ export const selectCheckoutTotalCount = createAppSelector([selectBasketState], (
   }, 0);
 });
 
-export const selectCheckoutTotalPrice = createAppSelector([selectBasketState], (basketState) => {
+export const selectCheckoutTotalPrice = createSelector([selectBasketState], (basketState) => {
   return basketState.checkoutItems.reduce((total, item) => {
     const price = Number(item.price);
     if (!isNaN(price) && price > 0) {

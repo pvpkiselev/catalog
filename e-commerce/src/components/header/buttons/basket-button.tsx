@@ -1,5 +1,5 @@
 import { selectBasketTotalCount } from '@/store/basket/basket-selectors';
-import { useAppSelector } from '@/store/redux';
+import { useAppSelector } from '@/store/store';
 import { ShoppingCart } from '@mui/icons-material';
 import { Badge, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';

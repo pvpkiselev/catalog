@@ -10,7 +10,7 @@ import {
   increasedItemCount,
   removedFromBasket,
 } from '@/store/basket/basket-slice';
-import { useAppDispatch, useAppSelector } from '@/store/redux';
+import { useAppDispatch, useAppSelector } from '@/store/store';
 import { useCallback, useEffect } from 'react';
 import toast from 'react-hot-toast';
 

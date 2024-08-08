@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { MAX_PRICE, MIN_PRICE, PRODUCTS_LIMIT } from '@/helpers/constants';
 import { getCategoriesThunk, getSortedProductsThunk } from './filters-thunks';
 
-type FiltersState = {
+export type FiltersState = {
   products: Product[];
   limit: number;
   categories: Category[];

@@ -3,7 +3,7 @@ import ButtonLink from '@/components/common/button-link';
 import { BORDER_RADIUS_M, GRAY_BG } from '@/helpers/constants';
 import useBasket from '@/hooks/use-basket';
 import { selectBasketTotalPrice } from '@/store/basket/basket-selectors';
-import { useAppSelector } from '@/store/redux';
+import { useAppSelector } from '@/store/store';
 import { Container, Stack, Typography } from '@mui/material';
 
 function BasketPage() {

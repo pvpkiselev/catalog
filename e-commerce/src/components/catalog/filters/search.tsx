@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useAppDispatch } from '@/store/redux';
 import { useDebouncedCallback } from 'use-debounce';
 import { FormControl, InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Close } from '@mui/icons-material';
 import { changedSearchQuery } from '@/store/filters/filters-slice';
+import { useAppDispatch } from '@/store/store';
 
 function Search() {
   const dispatch = useAppDispatch();
@@ -40,9 +40,9 @@ function Search() {
               <SearchIcon />
             </InputAdornment>
           ),
-          endAdornment: (
-            <InputAdornment position="end" onClick={handleResetClick}>
-              {!isEmptyQuery && <Close />}
+          endAdornment: !isEmptyQuery && (
+            <InputAdornment position="end" onClick={handleResetClick} data-testid="reset-button">
+              <Close />
             </InputAdornment>
           ),
         }}

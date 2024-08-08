@@ -6,7 +6,7 @@ import {
   selectCheckoutTotalCount,
   selectCheckoutTotalPrice,
 } from '@/store/basket/basket-selectors';
-import { useAppSelector } from '@/store/redux';
+import { useAppSelector } from '@/store/store';
 import { getFormattedDate } from '@/utils/get-formatted-date';
 import { Box, Container, Stack, Typography } from '@mui/material';
 
