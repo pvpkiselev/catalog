@@ -1,5 +1,6 @@
-import { Product } from '@/api/models';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { Product } from '@/api/models';
 
 interface BasketState {
   basketItems: Product[];

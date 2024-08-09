@@ -1,10 +1,11 @@
+import { useState } from 'react';
+
 import AuthModal from '@/components/auth/auth-modal';
 import { AuthValues } from '@/helpers/models';
 import useAppNavigate from '@/hooks/use-app-navigate';
 import useAuth from '@/hooks/use-auth';
 import { selectAuthStatus } from '@/store/auth/auth-selectors';
 import { useAppSelector } from '@/store/store';
-import { useState } from 'react';
 
 function AuthPage() {
   const [isRegistered, setIsRegistered] = useState(true);

@@ -1,4 +1,5 @@
 import { Modal, Box, Container, Stack, Typography, Slide } from '@mui/material';
+
 import SearchResults from './search-results';
 import SearchInput from './search-input';
 import CloseButton from '../common/close-button';

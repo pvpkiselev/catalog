@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import { Person } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 function LoginButton() {
   return (

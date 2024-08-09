@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import { Button, IconButton, Stack, Typography, useMediaQuery, Box, Paper } from '@mui/material';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import { Close } from '@mui/icons-material';
+
+import { theme } from '@/theme/theme';
+
 import Categories from './categories';
 import PriceRange from './price-range';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import { useState } from 'react';
-import { Close } from '@mui/icons-material';
-import { theme } from '@/theme/theme';
 
 function Filters() {
   const [mobileOpen, setMobileOpen] = useState(false);

@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
+import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
+
 import { Product } from '@/api/models';
 import { BORDER_RADIUS_M, GRAY_BG } from '@/helpers/constants';
 import { changedModalStatus } from '@/store/search/search-slice';
 import { useAppDispatch } from '@/store/store';
-import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 interface SearchResultsCardProps {
   product: Product | null;

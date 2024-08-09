@@ -1,7 +1,8 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import getUserSession from '@/api/get-user-session';
 import fetchAuthentication from '@/api/fetch-authentication';
 import fetchCreateUser from '@/api/fetch-create-user';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const checkUserThunk = createAsyncThunk(
   'auth/checkUser',

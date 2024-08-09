@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { theme } from './theme/theme';
+import { Provider } from 'react-redux';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ErrorPage from './routes/error-page';
-import { Provider } from 'react-redux';
+
+import { theme } from './theme/theme';
+import './main.scss';
 import { setupStore } from './store/store';
-import BasketPage from './routes/basket-page';
-import { productPageLoader } from './loaders/product-page-loader';
+import Root from './routes/root';
+import ErrorPage from './routes/error-page';
+import HomePage from './routes/home-page';
+import CatalogPage from './routes/catalog-page';
 import ProductPage from './routes/product-page';
+import { productPageLoader } from './loaders/product-page-loader';
+import BasketPage from './routes/basket-page';
 import CheckoutPage from './routes/checkout-page';
 import AuthPage from './routes/auth-page';
-import CatalogPage from './routes/catalog-page';
-import HomePage from './routes/home-page';
-import './main.scss';
-import Root from './routes/root';
 
 const router = createBrowserRouter([
   {

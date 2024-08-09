@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import { Box, MobileStepper, Button, CardMedia } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+
 import { BORDER_RADIUS_M } from '@/helpers/constants';
 import { cleanUrl } from '@/utils/clean-url';
 import placeholderImage from '@public/images/placeholder-image.jpg';

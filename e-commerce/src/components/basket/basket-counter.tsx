@@ -1,6 +1,7 @@
-import useBasket from '@/hooks/use-basket';
 import { Add, DeleteForever, Remove } from '@mui/icons-material';
 import { IconButton, Stack, Typography } from '@mui/material';
+
+import useBasket from '@/hooks/use-basket';
 
 interface BasketCounterProps {
   id: number;

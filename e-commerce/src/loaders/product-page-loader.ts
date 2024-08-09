@@ -1,5 +1,6 @@
-import getProductById from '@/api/get-product-by-id';
 import { LoaderFunctionArgs } from 'react-router-dom';
+
+import getProductById from '@/api/get-product-by-id';
 
 const loaderError = {
   fetch: 'Failed to fetch product',

@@ -1,6 +1,7 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import getCategories from '@/api/get-categories';
 import getSortedProducts from '@/api/get-sorted-products';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getCategoriesThunk = createAsyncThunk('filters/getCategories', async () => {
   return await getCategories();

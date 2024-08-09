@@ -1,5 +1,6 @@
 import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+
 import { useAppDispatch } from '@/store/store';
 import { changedModalStatus } from '@/store/search/search-slice';
 

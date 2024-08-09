@@ -1,5 +1,6 @@
-import ButtonLink from '@/components/common/button-link';
 import { Box, Typography } from '@mui/material';
+
+import ButtonLink from '@/components/common/button-link';
 
 function ErrorPage() {
   return (

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Box, FormControl, MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
+
 import useCategories from '@/hooks/use-categories';
 
 function Categories() {

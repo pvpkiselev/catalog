@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Box } from '@mui/material';
+
 import { sliderSettings } from './slider-settings';
 import ArrowControlButton from './arrow-control-button';
 import CardsSliderSkeleton from './cards-slider-skeleton';

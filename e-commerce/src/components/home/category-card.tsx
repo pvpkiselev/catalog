@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
+import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
+
 import { Category } from '@/api/models';
 import { BORDER_RADIUS_M, GRAY_BG } from '@/helpers/constants';
-import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 interface CategoryCardProps {
   category: Category;

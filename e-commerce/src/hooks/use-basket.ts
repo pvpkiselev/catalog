@@ -1,3 +1,6 @@
+import { useCallback, useEffect } from 'react';
+import toast from 'react-hot-toast';
+
 import { Product } from '@/api/models';
 import { BASKET_STORAGE_NAME } from '@/helpers/constants';
 import { selectIsAuth } from '@/store/auth/auth-selectors';
@@ -11,8 +14,6 @@ import {
   removedFromBasket,
 } from '@/store/basket/basket-slice';
 import { useAppDispatch, useAppSelector } from '@/store/store';
-import { useCallback, useEffect } from 'react';
-import toast from 'react-hot-toast';
 
 const basketMessages = {
   errors: {

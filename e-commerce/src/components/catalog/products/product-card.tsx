@@ -1,5 +1,6 @@
-import { Card, CardContent, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Card, CardContent, Stack, Typography } from '@mui/material';
+
 import { Product } from '@/api/models';
 import { BORDER_RADIUS_M, GRAY_BG } from '@/helpers/constants';
 import AddToBasketButton from '@/components/common/add-to-basket-button';

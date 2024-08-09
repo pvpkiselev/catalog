@@ -10,6 +10,7 @@ import {
   TextField,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+
 import GoBackButton from '../common/go-back-button';
 import { AuthValues } from '@/helpers/models';
 interface AuthModalProps {

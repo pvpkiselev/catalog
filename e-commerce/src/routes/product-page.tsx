@@ -1,9 +1,10 @@
+import { Box, Container, Grid, Stack, Typography } from '@mui/material';
+import { useLoaderData } from 'react-router-dom';
+
 import { Product } from '@/api/models';
 import AddToBasketButton from '@/components/common/add-to-basket-button';
 import GoBackButton from '@/components/common/go-back-button';
 import ImageSlider from '@/components/common/sliders/image-slider/image-slider';
-import { Box, Container, Grid, Stack, Typography } from '@mui/material';
-import { useLoaderData } from 'react-router-dom';
 
 function ProductPage() {
   const product = useLoaderData() as Product;

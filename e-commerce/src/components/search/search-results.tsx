@@ -1,4 +1,6 @@
+import { useCallback, useEffect, useState } from 'react';
 import { Alert, Box, Stack, Typography } from '@mui/material';
+
 import SearchResultsCard from './search-results-card';
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import {
@@ -6,7 +8,6 @@ import {
   selectSearchQuery,
   selectSearchStatus,
 } from '@/store/search/search-selectors';
-import { useCallback, useEffect, useState } from 'react';
 import { getSearchResultsThunk } from '@/store/search/search-thunks';
 
 function SearchResults() {

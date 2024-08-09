@@ -1,9 +1,10 @@
+import { useState } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
 import { TextField, InputAdornment, FormControl } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Close } from '@mui/icons-material';
+
 import { useAppDispatch } from '@/store/store';
-import { useState } from 'react';
-import { useDebouncedCallback } from 'use-debounce';
 import { changedSearchQuery } from '@/store/search/search-slice';
 
 function SearchInput() {

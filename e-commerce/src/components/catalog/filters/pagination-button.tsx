@@ -1,6 +1,7 @@
+import { LoadingButton } from '@mui/lab';
+
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import { selectFiltersStatus } from '@/store/filters/filters-selectors';
-import { LoadingButton } from '@mui/lab';
 import { PRODUCTS_LIMIT } from '@/helpers/constants';
 import { changedLimit } from '@/store/filters/filters-slice';
 

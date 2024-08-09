@@ -1,13 +1,14 @@
-import { selectIsAuth } from '@/store/auth/auth-selectors';
 import { AppBar, Container, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
+
 import Logo from '@public/logo/logo.svg';
 import BasketButton from './buttons/basket-button';
 import LogoutButton from './buttons/logout-button';
 import LoginButton from './buttons/login-button';
 import AppLink from '../common/text-link';
-import { useAppSelector } from '@/store/store';
 import SearchButton from '../search/search-button';
+import { useAppSelector } from '@/store/store';
+import { selectIsAuth } from '@/store/auth/auth-selectors';
 
 function Header() {
   const isAuth = useAppSelector(selectIsAuth);

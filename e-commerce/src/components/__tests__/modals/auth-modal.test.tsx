@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import AuthModal from '../../auth/auth-modal';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
+
+import AuthModal from '../../auth/auth-modal';
 
 describe('AuthModal', () => {
   const mockOnSubmit = jest.fn();

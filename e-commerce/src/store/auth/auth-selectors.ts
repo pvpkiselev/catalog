@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+
 import { AppState } from '../store';
 
 const selectAuthState = (state: AppState) => state.auth;

@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import SearchInput from '@/components/search/search-input';
 import userEvent from '@testing-library/user-event';
+
+import SearchInput from '@/components/search/search-input';
 
 const mockDispatch = jest.fn();
 jest.mock('@/store/store', () => ({

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { UserResponse } from '@/api/models';
 import { checkUserThunk, loginUserThunk, registerUserThunk } from './auth-thunks';
 

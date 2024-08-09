@@ -1,3 +1,5 @@
+import { Box, Container, Stack, Typography } from '@mui/material';
+
 import CheckoutCard from '@/components/checkout/checkout-card';
 import ButtonLink from '@/components/common/button-link';
 import { BORDER_RADIUS_M, GRAY_BG } from '@/helpers/constants';
@@ -8,7 +10,6 @@ import {
 } from '@/store/basket/basket-selectors';
 import { useAppSelector } from '@/store/store';
 import { getFormattedDate } from '@/utils/get-formatted-date';
-import { Box, Container, Stack, Typography } from '@mui/material';
 
 function CheckoutPage() {
   const checkoutItems = useAppSelector(selectCheckoutItems);

@@ -1,7 +1,10 @@
 import { useCallback, useLayoutEffect, useState } from 'react';
-import ProductCard from './product-card';
 import { Alert, Box, Grid, Stack, Typography } from '@mui/material';
+
+import ProductCard from './product-card';
 import PaginationButton from '../filters/pagination-button';
+import ProductsListSkeleton from './products-list-skeleton';
+
 import {
   selectCurrentCategoryId,
   selectFiltersStatus,
@@ -10,7 +13,6 @@ import {
   selectProducts,
 } from '@/store/filters/filters-selectors';
 import { PRODUCTS_MAX_LIMIT } from '@/helpers/constants';
-import ProductsListSkeleton from './products-list-skeleton';
 import { getSortedProductsThunk } from '@/store/filters/filters-thunks';
 import { useAppDispatch, useAppSelector } from '@/store/store';
 

@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+
 import { AppState } from '../store';
 
 const selectSearchState = (state: AppState) => state.search;

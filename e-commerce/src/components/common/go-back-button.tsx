@@ -1,6 +1,7 @@
-import useAppNavigate from '@/hooks/use-app-navigate';
 import { ArrowBack } from '@mui/icons-material';
 import { Button, ButtonProps } from '@mui/material';
+
+import useAppNavigate from '@/hooks/use-app-navigate';
 
 interface Styles {
   color?: ButtonProps['color'];

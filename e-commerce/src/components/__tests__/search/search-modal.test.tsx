@@ -1,7 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import SearchModal from '@/components/search/search-modal';
 import userEvent from '@testing-library/user-event';
+
 import { AppState } from '@/store/store';
+import SearchModal from '@/components/search/search-modal';
 import { changedModalStatus } from '@/store/search/search-slice';
 
 const mockDispatch = jest.fn();

@@ -1,7 +1,8 @@
-import { Product } from '@/api/models';
-import useBasket from '@/hooks/use-basket';
 import { RemoveShoppingCart, ShoppingCart } from '@mui/icons-material';
 import { Button, IconButton } from '@mui/material';
+
+import { Product } from '@/api/models';
+import useBasket from '@/hooks/use-basket';
 
 interface AddToBasketButtonProps {
   product: Product;

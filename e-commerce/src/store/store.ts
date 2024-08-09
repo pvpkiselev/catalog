@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { authReducer } from './auth/auth-slice';
 import { filtersReducer } from './filters/filters-slice';
 import { basketReducer } from './basket/basket-slice';
-import { useDispatch, useSelector } from 'react-redux';
 import { searchReducer } from './search/search-slice';
 
 const appReducer = combineReducers({

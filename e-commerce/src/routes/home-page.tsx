@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
+import { Box, Container, Stack, Typography } from '@mui/material';
+
 import ButtonLink from '@/components/common/button-link';
 import CardsSlider from '@/components/common/sliders/cards-slider/cards-slider';
 import CategoryCard from '@/components/home/category-card';
 import useCategories from '@/hooks/use-categories';
-import { Box, Container, Stack, Typography } from '@mui/material';
 import heroImg from '@public/images/hero.jpg';
-import { useEffect } from 'react';
 
 function HomePage() {
   const { categories, getCategories, changeCategory } = useCategories();

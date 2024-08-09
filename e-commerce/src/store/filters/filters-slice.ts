@@ -1,5 +1,6 @@
-import { Category, Product } from '@/api/models';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { Category, Product } from '@/api/models';
 import { MAX_PRICE, MIN_PRICE, PRODUCTS_LIMIT } from '@/helpers/constants';
 import { getCategoriesThunk, getSortedProductsThunk } from './filters-thunks';
 

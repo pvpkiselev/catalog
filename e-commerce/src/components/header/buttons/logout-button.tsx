@@ -1,6 +1,7 @@
-import useAuth from '@/hooks/use-auth';
-import { Logout } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
+import { Logout } from '@mui/icons-material';
+
+import useAuth from '@/hooks/use-auth';
 
 function LogoutButton() {
   const { handleLogout } = useAuth();
