@@ -3,9 +3,10 @@ import Slider from 'react-slick';
 import { Box } from '@mui/material';
 import { sliderSettings } from './slider-settings';
 import ArrowControlButton from './arrow-control-button';
+import CardsSliderSkeleton from './cards-slider-skeleton';
 
 interface CardsSliderProps {
-  children: React.ReactNode[];
+  children: React.ReactElement[];
 }
 
 function CardsSlider(props: CardsSliderProps) {
@@ -15,6 +16,7 @@ function CardsSlider(props: CardsSliderProps) {
   const totalChildren = React.Children.count(children);
   const shouldShowControls = totalChildren > slidesToShow;
   const shouldShowDots = totalChildren > slidesToShow;
+  const isEmptyList = totalChildren === 0;
 
   const processedChildren = React.Children.map(children, (child, index) => {
     if (!child) return null;
@@ -24,23 +26,32 @@ function CardsSlider(props: CardsSliderProps) {
 
     const padding = index === 0 || index === totalChildren ? zeroPadding : defaultPadding;
 
-    return <Box paddingLeft={`${padding}px`}>{child}</Box>;
+    return React.cloneElement(child, {
+      sx: {
+        ...(child.props.sx || {}),
+        paddingLeft: `${padding}px`,
+      },
+    });
   });
 
   return (
     <Box position="relative" width="100%">
-      <Slider
-        {...sliderSettings}
-        prevArrow={
-          <ArrowControlButton direction="left" onClick={() => {}} visible={shouldShowControls} />
-        }
-        nextArrow={
-          <ArrowControlButton direction="right" onClick={() => {}} visible={shouldShowControls} />
-        }
-        dots={shouldShowDots}
-      >
-        {processedChildren}
-      </Slider>
+      {!isEmptyList ? (
+        <Slider
+          {...sliderSettings}
+          prevArrow={
+            <ArrowControlButton direction="left" onClick={() => {}} visible={shouldShowControls} />
+          }
+          nextArrow={
+            <ArrowControlButton direction="right" onClick={() => {}} visible={shouldShowControls} />
+          }
+          dots={shouldShowDots}
+        >
+          {processedChildren}
+        </Slider>
+      ) : (
+        <CardsSliderSkeleton />
+      )}
     </Box>
   );
 }

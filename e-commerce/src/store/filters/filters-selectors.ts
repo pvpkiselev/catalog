@@ -28,11 +28,6 @@ export const selectProducts = createSelector(
   (filtersState) => filtersState.products
 );
 
-export const selectSearchQuery = createSelector(
-  [selectFiltersState],
-  (filtersState) => filtersState.searchQuery
-);
-
 export const selectLimit = createSelector(
   [selectFiltersState],
   (filtersState) => filtersState.limit

@@ -5,7 +5,6 @@ import { resources } from './resources';
 import { fetchErrors } from './constants';
 
 export interface GetSortedProducts {
-  searchQuery?: string;
   price_min: number;
   price_max: number;
   categoryId: number | null;
@@ -13,7 +12,6 @@ export interface GetSortedProducts {
 }
 
 type ProductsParams = {
-  title: string | null;
   price_min: number;
   price_max: number;
   categoryId: number | null;
@@ -22,12 +20,11 @@ type ProductsParams = {
 };
 
 const getSortedProducts = async (props: GetSortedProducts): Promise<Product[]> => {
-  const { searchQuery, price_min, price_max, categoryId, limit } = props;
+  const { price_min, price_max, categoryId, limit } = props;
   const { products } = resources.filters;
   const url = `${products}`;
 
   const params: ProductsParams = {
-    title: searchQuery || null,
     price_min,
     price_max,
     categoryId: categoryId || null,

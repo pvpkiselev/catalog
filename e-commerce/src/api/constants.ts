@@ -14,5 +14,6 @@ export const fetchErrors = {
   categories: 'Get Categories Error',
   product_by_id: 'Get Product by Id Error',
   sorted_products: 'Get Sorted Products Error',
+  search_results: 'Get Search Results Error',
   user_session: 'Get User Session Error',
 };

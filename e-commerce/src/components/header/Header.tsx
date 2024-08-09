@@ -6,8 +6,8 @@ import BasketButton from './buttons/basket-button';
 import LogoutButton from './buttons/logout-button';
 import LoginButton from './buttons/login-button';
 import AppLink from '../common/text-link';
-import Search from '../catalog/filters/search';
 import { useAppSelector } from '@/store/store';
+import SearchButton from '../search/search-button';
 
 function Header() {
   const isAuth = useAppSelector(selectIsAuth);
@@ -27,29 +27,19 @@ function Header() {
         <Stack
           direction="row"
           height="100%"
+          width="100%"
+          justifyContent="space-between"
           alignItems="center"
           flexWrap="wrap"
           gap={{ xs: 6, md: 10 }}
         >
-          <Stack
-            direction="row"
-            alignItems="center"
-            flexGrow={{ xs: 1, md: 0 }}
-            order={{ xs: 1, md: 1 }}
-          >
+          <Stack direction="row" alignItems="center">
             <Link to="/" style={{ textDecoration: 'none' }}>
               <img src={Logo} alt="Logo" style={{ height: 42 }} />
             </Link>
           </Stack>
 
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            width={{ xs: '100%', md: 'inherit' }}
-            gap={6}
-            order={{ xs: 3, md: 2 }}
-          >
+          <Stack direction="row" alignItems="center" gap={6}>
             <AppLink to="/">Home</AppLink>
             <AppLink to="/catalog">Catalog</AppLink>
             <AppLink to="#" disabled={true}>
@@ -57,11 +47,8 @@ function Header() {
             </AppLink>
           </Stack>
 
-          <Stack direction="row" alignItems="center" flexGrow={1} order={{ xs: 4, md: 3 }}>
-            <Search />
-          </Stack>
-
-          <Stack direction="row" alignItems="center" gap={4} order={{ xs: 2, md: 4 }}>
+          <Stack direction="row" alignItems="center" gap={4}>
+            <SearchButton />
             <BasketButton />
             {isAuth ? <LogoutButton /> : <LoginButton />}
           </Stack>

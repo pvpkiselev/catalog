@@ -1,16 +1,14 @@
-import { useState } from 'react';
-import { useDebouncedCallback } from 'use-debounce';
-import { FormControl, InputAdornment, TextField } from '@mui/material';
+import { TextField, InputAdornment, FormControl } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Close } from '@mui/icons-material';
-import { changedSearchQuery } from '@/store/filters/filters-slice';
 import { useAppDispatch } from '@/store/store';
+import { useState } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
+import { changedSearchQuery } from '@/store/search/search-slice';
 
-function Search() {
+function SearchInput() {
   const dispatch = useAppDispatch();
   const [localQuery, setLocalQuery] = useState('');
-
-  const isEmptyQuery = localQuery === '';
 
   const handleSearchQueryDispatch = useDebouncedCallback((query: string) => {
     dispatch(changedSearchQuery(query));
@@ -26,6 +24,8 @@ function Search() {
     setLocalQuery('');
     dispatch(changedSearchQuery(''));
   };
+
+  const isEmptyQuery = localQuery === '';
 
   return (
     <FormControl sx={{ minWidth: '100%' }}>
@@ -51,4 +51,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchInput;

@@ -9,7 +9,6 @@ export type FiltersState = {
   categories: Category[];
   categoryId: number | null;
   priceRange: number[];
-  searchQuery: string;
   status: 'pending' | 'fulfilled' | 'rejected';
 };
 
@@ -19,7 +18,6 @@ const filtersInitialState: FiltersState = {
   categories: [],
   categoryId: null,
   priceRange: [MIN_PRICE, MAX_PRICE],
-  searchQuery: '',
   status: 'fulfilled',
 };
 
@@ -33,10 +31,6 @@ const filtersSlice = createSlice({
     },
     changedCategoryId(state, action: PayloadAction<number | null>) {
       state.categoryId = action.payload;
-      state.limit = PRODUCTS_LIMIT;
-    },
-    changedSearchQuery(state, action: PayloadAction<string>) {
-      state.searchQuery = action.payload;
       state.limit = PRODUCTS_LIMIT;
     },
     changedLimit(state, action: PayloadAction<number>) {
@@ -69,6 +63,5 @@ const filtersSlice = createSlice({
   },
 });
 
-export const { changedPriceRange, changedCategoryId, changedSearchQuery, changedLimit } =
-  filtersSlice.actions;
+export const { changedPriceRange, changedCategoryId, changedLimit } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

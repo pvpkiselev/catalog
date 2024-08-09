@@ -9,20 +9,17 @@ export const getCategoriesThunk = createAsyncThunk('filters/getCategories', asyn
 export const getSortedProductsThunk = createAsyncThunk(
   'filters/getSortedProducts',
   async ({
-    searchQuery,
     price_min,
     price_max,
     categoryId,
     limit,
   }: {
-    searchQuery: string;
     price_min: number;
     price_max: number;
     categoryId: number | null;
     limit: number;
   }) => {
     return await getSortedProducts({
-      searchQuery,
       price_min,
       price_max,
       categoryId,

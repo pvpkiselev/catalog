@@ -8,7 +8,6 @@ import {
   selectLimit,
   selectPriceRange,
   selectProducts,
-  selectSearchQuery,
 } from '@/store/filters/filters-selectors';
 import { PRODUCTS_MAX_LIMIT } from '@/helpers/constants';
 import ProductsListSkeleton from './products-list-skeleton';
@@ -18,7 +17,6 @@ import { useAppDispatch, useAppSelector } from '@/store/store';
 function ProductsList() {
   const [error, setError] = useState<string | null>(null);
 
-  const searchQuery = useAppSelector(selectSearchQuery);
   const priceRange = useAppSelector(selectPriceRange);
   const categoryId = useAppSelector(selectCurrentCategoryId);
   const limit = useAppSelector(selectLimit);
@@ -30,14 +28,14 @@ function ProductsList() {
     setError(null);
     const price_min = priceRange[0];
     const price_max = priceRange[1];
-    const options = { searchQuery, price_min, price_max, categoryId, limit };
+    const options = { price_min, price_max, categoryId, limit };
     try {
       await dispatch(getSortedProductsThunk(options));
     } catch (error) {
       setError('Products Fetch Failed');
       console.error(error);
     }
-  }, [searchQuery, priceRange, categoryId, limit]);
+  }, [priceRange, categoryId, limit]);
 
   useLayoutEffect(() => {
     getProductsList();

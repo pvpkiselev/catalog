@@ -1,4 +1,4 @@
-import AuthModal from '@/components/modals/auth-modal';
+import AuthModal from '@/components/auth/auth-modal';
 import { AuthValues } from '@/helpers/models';
 import useAppNavigate from '@/hooks/use-app-navigate';
 import useAuth from '@/hooks/use-auth';

@@ -1,21 +1,22 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import Search from '@/components/catalog/filters/search';
+import SearchInput from '@/components/search/search-input';
 import userEvent from '@testing-library/user-event';
 
+const mockDispatch = jest.fn();
 jest.mock('@/store/store', () => ({
-  useAppDispatch: () => jest.fn(),
+  useAppDispatch: () => mockDispatch,
 }));
 
-describe('Search Component', () => {
+describe('SearchInput Component', () => {
   test('renders the search input field', () => {
-    render(<Search />);
+    render(<SearchInput />);
 
     const inputElement = screen.getByPlaceholderText(/search/i);
     expect(inputElement).toBeInTheDocument();
   });
 
   test('updates local query on input change', async () => {
-    render(<Search />);
+    render(<SearchInput />);
 
     const inputElement = screen.getByPlaceholderText(/Search/i);
     await userEvent.type(inputElement, 'test query');
@@ -24,7 +25,7 @@ describe('Search Component', () => {
   });
 
   test('shows and hides the reset button based on input', async () => {
-    render(<Search />);
+    render(<SearchInput />);
 
     const inputElement = screen.getByPlaceholderText(/search/i);
 
@@ -41,6 +42,20 @@ describe('Search Component', () => {
     expect(inputElement).toHaveValue('');
     await waitFor(() => {
       expect(screen.queryByTestId('reset-button')).not.toBeInTheDocument();
+    });
+  });
+
+  test('dispatches action on input change', async () => {
+    render(<SearchInput />);
+
+    const input = screen.getByPlaceholderText(/Search/i);
+    await userEvent.type(input, 'test query');
+
+    await waitFor(() => {
+      expect(mockDispatch).toHaveBeenCalledWith({
+        type: 'search/changedSearchQuery',
+        payload: 'test query',
+      });
     });
   });
 });
