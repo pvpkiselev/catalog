@@ -34,8 +34,6 @@
     "use-debounce": "^10.0.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.25.3",
-    "@babel/preset-typescript": "^7.24.7",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",

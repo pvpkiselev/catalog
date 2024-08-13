@@ -4,17 +4,19 @@ import userEvent from '@testing-library/user-event';
 
 import ErrorPage from '@/routes/error-page';
 
+const testId = 'error-page';
+
 const renderWithRouter = (ui: React.ReactElement) => {
   return render(<BrowserRouter>{ui}</BrowserRouter>);
 };
 
 describe('Error page', () => {
   it('render the component', async () => {
-    renderWithRouter(<ErrorPage data-testid="error-page" />);
+    renderWithRouter(<ErrorPage />);
 
-    await screen.findByTestId('error-page');
+    await screen.findByTestId(testId);
 
-    expect(screen.getByTestId('error-page')).toBeInTheDocument();
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
   });
 
   it('button redirects to HomePage', () => {

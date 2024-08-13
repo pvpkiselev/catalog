@@ -4,6 +4,18 @@ import { BrowserRouter } from 'react-router-dom';
 
 import AuthModal from '../../auth/auth-modal';
 
+const labels = {
+  name: 'Name',
+  email: 'Email address',
+  password: 'Password',
+};
+
+const values = {
+  name: 'Vasiliy',
+  email: 'Xs9Xh@example.com',
+  password: '123456',
+};
+
 describe('AuthModal', () => {
   const mockOnSubmit = jest.fn();
   const mockOnToggle = jest.fn();
@@ -19,45 +31,49 @@ describe('AuthModal', () => {
   it('renders the sign-up form correctly', () => {
     render(<AuthModal {...defaultProps} />, { wrapper: BrowserRouter });
 
-    expect(screen.getByLabelText(/Name/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Email address/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(new RegExp(labels.name, 'i'))).toBeInTheDocument();
+    expect(screen.getByLabelText(new RegExp(labels.email, 'i'))).toBeInTheDocument();
+    expect(screen.getByLabelText(new RegExp(labels.password, 'i'))).toBeInTheDocument();
   });
 
   it('renders the sign-in form correctly', () => {
     render(<AuthModal {...defaultProps} isRegistered />, { wrapper: BrowserRouter });
 
-    expect(screen.queryByLabelText(/Name/i)).toBeNull();
-    expect(screen.getByLabelText(/Email address/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
+    expect(screen.queryByLabelText(new RegExp(labels.name, 'i'))).toBeNull();
+    expect(screen.getByLabelText(new RegExp(labels.email, 'i'))).toBeInTheDocument();
+    expect(screen.getByLabelText(new RegExp(labels.password, 'i'))).toBeInTheDocument();
   });
 
   it('input credentials', async () => {
     render(<AuthModal {...defaultProps} />, { wrapper: BrowserRouter });
 
-    await userEvent.type(screen.getByLabelText(/Name/i), 'Vasiliy');
-    await userEvent.type(screen.getByLabelText(/Email address/i), 'vasya@example.com');
-    await userEvent.type(screen.getByLabelText(/Password/i), 'password123');
+    await userEvent.type(screen.getByLabelText(new RegExp(labels.name, 'i')), values.name);
+    await userEvent.type(screen.getByLabelText(new RegExp(labels.email, 'i')), values.email);
+    await userEvent.type(screen.getByLabelText(new RegExp(labels.password, 'i')), values.password);
 
-    expect((screen.getByLabelText(/Name/i) as HTMLInputElement).value).toBe('Vasiliy');
-    expect((screen.getByLabelText(/Email address/i) as HTMLInputElement).value).toBe(
-      'vasya@example.com'
+    expect((screen.getByLabelText(new RegExp(labels.name, 'i')) as HTMLInputElement).value).toBe(
+      values.name
     );
-    expect((screen.getByLabelText(/Password/i) as HTMLInputElement).value).toBe('password123');
+    expect((screen.getByLabelText(new RegExp(labels.email, 'i')) as HTMLInputElement).value).toBe(
+      values.email
+    );
+    expect(
+      (screen.getByLabelText(new RegExp(labels.password, 'i')) as HTMLInputElement).value
+    ).toBe(values.password);
   });
 
   it('calls onSubmit with correct values', async () => {
     render(<AuthModal {...defaultProps} />, { wrapper: BrowserRouter });
 
-    await userEvent.type(screen.getByLabelText(/Name/i), 'Vasiliy');
-    await userEvent.type(screen.getByLabelText(/Email address/i), 'vasya@example.com');
-    await userEvent.type(screen.getByLabelText(/Password/i), 'password123');
+    await userEvent.type(screen.getByLabelText(new RegExp(labels.name, 'i')), values.name);
+    await userEvent.type(screen.getByLabelText(new RegExp(labels.email, 'i')), values.email);
+    await userEvent.type(screen.getByLabelText(new RegExp(labels.password, 'i')), values.password);
     await userEvent.click(screen.getByRole('button', { name: /Sign up/i }));
 
     expect(mockOnSubmit).toHaveBeenCalledWith({
-      name: 'Vasiliy',
-      email: 'vasya@example.com',
-      password: 'password123',
+      name: values.name,
+      email: values.email,
+      password: values.password,
     });
   });
 

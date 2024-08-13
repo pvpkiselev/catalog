@@ -5,6 +5,11 @@ import { AppState } from '@/store/store';
 import SearchModal from '@/components/search/search-modal';
 import { changedModalStatus } from '@/store/search/search-slice';
 
+const returnOpenValue = 'open';
+const returnCloseValue = 'close';
+const searchTestId = 'search-modal';
+const closeBtnTestId = 'close-button';
+
 const mockDispatch = jest.fn();
 const mockSelector = jest.fn();
 jest.mock('@/store/store', () => ({
@@ -19,36 +24,36 @@ describe('Search Modal Component', () => {
   });
 
   test('renders the search modal', async () => {
-    mockSelector.mockReturnValue('open');
+    mockSelector.mockReturnValue(returnOpenValue);
     render(<SearchModal />);
 
     await waitFor(() => {
-      const modal = screen.getByTestId('search-modal');
+      const modal = screen.getByTestId(searchTestId);
       expect(modal).toBeInTheDocument();
     });
   });
 
   test('modal close on CloseButton click', async () => {
-    mockSelector.mockReturnValue('open');
+    mockSelector.mockReturnValue(returnOpenValue);
     const { rerender } = render(<SearchModal />);
 
     await waitFor(() => {
-      const modal = screen.getByTestId('search-modal');
+      const modal = screen.getByTestId(searchTestId);
       expect(modal).toBeInTheDocument();
     });
 
-    const closeButton = screen.getByTestId('close-button');
+    const closeButton = screen.getByTestId(closeBtnTestId);
     await userEvent.click(closeButton);
 
     await waitFor(() => {
-      expect(mockDispatch).toHaveBeenCalledWith(changedModalStatus('close'));
+      expect(mockDispatch).toHaveBeenCalledWith(changedModalStatus(returnCloseValue));
     });
 
-    mockSelector.mockReturnValue('close');
+    mockSelector.mockReturnValue(returnCloseValue);
     rerender(<SearchModal />);
 
     await waitFor(() => {
-      const modal = screen.queryByTestId('search-modal');
+      const modal = screen.queryByTestId(searchTestId);
       expect(modal).not.toBeInTheDocument();
     });
   });
