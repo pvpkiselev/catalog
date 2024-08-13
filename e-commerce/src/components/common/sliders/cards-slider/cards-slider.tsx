@@ -7,7 +7,7 @@ import ArrowControlButton from './arrow-control-button';
 import CardsSliderSkeleton from './cards-slider-skeleton';
 
 interface CardsSliderProps {
-  children: React.ReactElement[];
+  children: React.ReactNode[];
 }
 
 function CardsSlider(props: CardsSliderProps) {
@@ -18,22 +18,6 @@ function CardsSlider(props: CardsSliderProps) {
   const shouldShowControls = totalChildren > slidesToShow;
   const shouldShowDots = totalChildren > slidesToShow;
   const isEmptyList = totalChildren === 0;
-
-  const processedChildren = React.Children.map(children, (child, index) => {
-    if (!child) return null;
-
-    const zeroPadding = 0;
-    const defaultPadding = 12;
-
-    const padding = index === 0 || index === totalChildren ? zeroPadding : defaultPadding;
-
-    return React.cloneElement(child, {
-      sx: {
-        ...(child.props.sx || {}),
-        paddingLeft: `${padding}px`,
-      },
-    });
-  });
 
   return (
     <Box position="relative" width="100%">
@@ -48,7 +32,7 @@ function CardsSlider(props: CardsSliderProps) {
           }
           dots={shouldShowDots}
         >
-          {processedChildren}
+          {children}
         </Slider>
       ) : (
         <CardsSliderSkeleton />
