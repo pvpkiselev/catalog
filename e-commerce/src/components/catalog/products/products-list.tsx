@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Alert, Box, Grid, Stack, Typography } from '@mui/material';
 
 import ProductCard from './product-card';
@@ -39,7 +39,7 @@ function ProductsList() {
     }
   }, [priceRange, categoryId, limit]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     getProductsList();
   }, [getProductsList]);
 
